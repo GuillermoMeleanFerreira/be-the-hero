@@ -1,24 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hellow Omnistack
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+// Componente: função que retorna html
+// JSX quando o html está integrado dentro do javascript
+import './global.css'
+import Routes from './routes';
+
+function App() { 
+  return ( 
+    <div>
+      <Routes></Routes>
     </div>
   );
 }
