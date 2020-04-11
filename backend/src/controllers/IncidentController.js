@@ -8,18 +8,18 @@ module.exports = {
 
         console.log(count);
         const ongs = await connection('incidents')
-            .join('ongs','ongs.id', '=', 'incidents.ong_id')
+            .join('ongs', 'ongs.id', '=', 'incidents.ong_id')
             .limit(5)
             .offset((page - 1) * 5)
-            .select(['incidents.*', 
-            'ongs.name', 
-            'ongs.email', 
-            'ongs.whatsapp',
-            'ongs.city']);
+            .select(['incidents.*',
+                'ongs.name',
+                'ongs.email',
+                'ongs.whatsapp',
+                'ongs.city']);
 
         response.header('X-Total-Count', count['count(*)'])
         response.header('X-Total-Page', 5)
-        return response.json({ ongs });
+        return response.json(ongs);
     },
     async create(request, response) {
         const { title, description, value } = request.body;
@@ -43,7 +43,7 @@ module.exports = {
             .select('ong_id')
             .first();
 
-        if(!incident){
+        if (!incident) {
             return response.status(401).json({ error: 'Incident does not exist' }); // não autorizado
         }
         if (ong_id != incident.ong_id) {
