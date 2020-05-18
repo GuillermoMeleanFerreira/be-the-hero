@@ -88,7 +88,7 @@ export default function Incidents() {
 
                         <TouchableOpacity
                             style={styles.detailsButton}
-                            onPress={() => navigateToDetail(incident)}
+                            onPress={() => { navigation.openDrawer() }}
 
                         >
                             <Text style={styles.detailsButtonText}>Ver mais detalhes</Text>
